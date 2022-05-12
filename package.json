@@ -1,0 +1,23 @@
+{
+  "name": "ticket_system",
+  "version": "1.0.0",
+  "description": "Ticket system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./backend/server.js",
+    "dev": "nodemon ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilvesterSpath/Ticket_system.git"
+  },
+  "author": "SilvesterSpath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SilvesterSpath/Ticket_system/issues"
+  },
+  "homepage": "https://github.com/SilvesterSpath/Ticket_system#readme",
+  "dependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
