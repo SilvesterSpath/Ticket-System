@@ -55,12 +55,10 @@ const Register = () => {
           <input type="password" id='password2' className="form-control" value={password2} name='password2' onChange={onChange} placeholder='Confirm your password' required/>
         </div>
         <div className="form-group">
-          <button className="btn btn-block">Submit</button>
-          
-        </div>
+          <button className="btn btn-block">Submit</button>          
+        </div>        
       </form>
-      
-      <ToastContainer />
+      <ToastContainer />      
      </section>
     </>
   )
