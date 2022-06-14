@@ -58,8 +58,7 @@ const Register = () => {
       }
 
       dispatch(register(userData))
-    }  
-    
+    }      
   }
   
   return (

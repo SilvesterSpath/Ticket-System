@@ -33,8 +33,7 @@ const Login = () => {
       password        
     }
 
-    dispatch(login(userData))
-    
+    dispatch(login(userData))    
   }
   
   return (
