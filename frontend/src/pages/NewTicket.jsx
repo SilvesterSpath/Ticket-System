@@ -7,8 +7,8 @@ import Spinner from '../components/Spinner'
 import BackButton from '../components/BackButton'
 
 const NewTicket = () => {
-  const { user } = useSelector(i => i.auth)
-  const { isLoading, isError, isSuccess, message} = useSelector(i => i.ticket)
+  const { user } = useSelector(store => store.auth)
+  const { isLoading, isError, isSuccess, message} = useSelector(store => store.tickets)
   const [name] = useState(user.name)
   const [email] = useState(user.email)
   const [product, setProduct] = useState('iPhone')
