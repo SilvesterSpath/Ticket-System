@@ -76,6 +76,43 @@ const createTicket = asyncHandler(async (req, res) => {
   res.status(201).json(ticket);
 });
 
+// @desc   Delete ticket
+// @route  DELETE /api/tickets/:id
+// @access Private
+const deleteTicket = asyncHandler(async (req, res) => {
+  // Get user using the is in the JWT
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(401);
+    throw new Error('User not found');
+  }
+
+  const ticket = await Ticket.findById(req.params.id);
+
+  if (!ticket) {
+    res.status(404);
+    throw new Error('Ticket not found');
+  }
+
+  if (ticket.user.toString() !== req.params.id) {
+    res.status(401);
+    throw new Error('Not Authorized');
+  }
+
+  await ticket.remove();
+
+  res.status(200).json({ success: true });
+});
+
+// @desc   Update ticket
+// @route  PUT /api/tickets/:id
+// @access Private
+const updateTicket = asyncHandler(async (req, res) => {
+  // Get user using the id in the JWT
+  const user = await User.findById(req.params.id);
+});
+
 module.exports = {
   getTickets,
   createTicket,
