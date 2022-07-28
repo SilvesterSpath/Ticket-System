@@ -5,6 +5,7 @@ const {
   getTickets,
   createTicket,
   getTicket,
+  updateTicket,
 } = require('../controllers/ticketControllers');
 
 const { protect } = require('../middleware/authMiddleware');
@@ -12,6 +13,7 @@ const { protect } = require('../middleware/authMiddleware');
 router.get('/', protect, getTickets);
 router.post('/', protect, createTicket);
 router.get('/:id', protect, getTicket);
+router.put('/:id', protect, updateTicket);
 
 /* router.route('/').get(protect, getTickets).post(protect, createTicket); */
 

@@ -110,7 +110,7 @@ const deleteTicket = asyncHandler(async (req, res) => {
 // @access Private
 const updateTicket = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
-  const user = await User.findById(req.params.id);
+  const user = await User.findById(req.user.id);
 
   if (!user) {
     res.status(401);
@@ -124,7 +124,7 @@ const updateTicket = asyncHandler(async (req, res) => {
     throw new Error('Ticket not found');
   }
 
-  if (ticket.user.toString() !== req.params.id) {
+  if (ticket.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error('Not Authorized');
   }
@@ -140,4 +140,5 @@ module.exports = {
   getTickets,
   createTicket,
   getTicket,
+  updateTicket,
 };

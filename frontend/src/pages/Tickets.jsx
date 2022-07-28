@@ -29,7 +29,7 @@ const Tickets = () => {
       <BackButton url='/'/>
       <h1>Tickets</h1>
       <div className="tickets">
-        <div className="tickets-headings">
+        <div className="ticket-headings">
           <div>Date</div>
           <div>Product</div>
           <div>Status</div>
