@@ -67,7 +67,7 @@ const Ticket = () => {
           </div>
         </header>
         {notes.map((item)=>(
-         <NoteItem key={item._id} note={item.text}/>
+         <NoteItem key={item._id} item={item}/>
         ))}
         {ticket.status !== 'closed' && (
           <button className="btn btn-block btn-danger" onClick={onTicketClose}>Close Ticket</button>
