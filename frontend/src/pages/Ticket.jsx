@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Modal from 'react-modal'
 import {FaPlus} from 'react-icons/fa'
 import { getTicket, closeTicket } from "../features/tickets/ticketSlice"
-import { getNotes, reset as noteReset } from "../features/notes/noteSlice"
+import { getNotes, reset as noteReset, createNote } from "../features/notes/noteSlice"
 import BackButton from "../components/BackButton"
 import NoteItem from "../components/NoteItem"
 import Spinner from "../components/Spinner"
@@ -61,6 +61,10 @@ const Ticket = () => {
   const onNoteSubmit = (e) =>{
     e.preventDefault()
     console.log('Submit');
+    dispatch(createNote({
+      noteText,
+      ticketId
+    }))
     closeModal()
   }
 
