@@ -59,8 +59,7 @@ const Ticket = () => {
 
   // Create note submit
   const onNoteSubmit = (e) =>{
-    e.preventDefault()
-    console.log('Submit');
+    e.preventDefault()    
     dispatch(createNote({
       noteText,
       ticketId
