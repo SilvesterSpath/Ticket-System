@@ -19,7 +19,7 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-const NoteModal = () => {
+const NoteModal = ({setOpen}) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [noteText, setNoteText] = useState('')
 
@@ -33,7 +33,7 @@ const NoteModal = () => {
 
   // Open/close modal
   const openModal = ()=> (setModalIsOpen(true));
-  const closeModal = ()=> (setModalIsOpen(false));
+  const closeModal = ()=> {setModalIsOpen(false); setOpen(false)};
 
       // Create note submit
   const onNoteSubmit = (e) =>{
