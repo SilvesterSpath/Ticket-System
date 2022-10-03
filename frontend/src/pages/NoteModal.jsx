@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from "react-redux"
-import { useParams, useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { useParams } from "react-router-dom"
 import { createNote } from "../features/notes/noteSlice"
 import Modal from 'react-modal'
 
@@ -28,14 +28,13 @@ const NoteModal = ({setOpen}) => {
   const {ticketId} = params;
 
   useEffect(()=>{
-    openModal()
+    setModalIsOpen(true)
   },[])
 
-  // Open/close modal
-  const openModal = ()=> (setModalIsOpen(true));
+  // Close modal  
   const closeModal = ()=> {setModalIsOpen(false); setOpen(false)};
 
-      // Create note submit
+  // Create note submit
   const onNoteSubmit = (e) =>{
     e.preventDefault()    
     dispatch(createNote({

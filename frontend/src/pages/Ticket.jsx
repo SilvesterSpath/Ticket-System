@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux"
 import { useParams, useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import Modal from 'react-modal'
 import {FaPlus} from 'react-icons/fa'
 import { getTicket, closeTicket } from "../features/tickets/ticketSlice"
 import { getNotes, reset as noteReset } from "../features/notes/noteSlice"
@@ -12,11 +11,10 @@ import NoteItem from "../components/NoteItem"
 import Spinner from "../components/Spinner"
 import NoteModal from "./NoteModal"
 
-const Ticket = () => {
-
+const Ticket = () => {  
   const [modalIsOpen, setModalIsOpen] = useState(false)
   
-  const {ticket, isLoading, isSuccess, isError, message} = useSelector((state) => (state.tickets))
+  const {ticket, isLoading, isError, message} = useSelector((state) => (state.tickets))
   const {notes, isLoading: notesIsLoading} = useSelector((state) => (state.notes))
 
   const params = useParams()
@@ -24,7 +22,7 @@ const Ticket = () => {
   const dispatch = useDispatch()
   const {ticketId} = params  
 
-  useEffect(()=>{    
+  useEffect(()=>{        
     if(isError){
       toast.error(message)
     }
@@ -42,8 +40,8 @@ const Ticket = () => {
     navigate('/tickets')
   }
 
-  // Open/close modal
-  const openModal = ()=> (setModalIsOpen(!modalIsOpen));
+  // Open
+  const openModal = ()=> (setModalIsOpen(true));
   
   if(isLoading || notesIsLoading){
     return <Spinner/>
